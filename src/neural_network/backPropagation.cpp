@@ -138,7 +138,8 @@ void NeuralNetwork::backPropagation() {
     }
 
     newWeights.push_back(new Matrix(*tempNewWeights));
-
+  
+    delete gradients; // MEM LEAK
     delete pGradients;
     delete transposedPWeights;
     delete hiddenDerived;
